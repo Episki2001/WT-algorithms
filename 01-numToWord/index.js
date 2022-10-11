@@ -6,11 +6,11 @@
  * coordinate with repository admin for further instructions
 */
 
-const digitNames = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
+const digitNames = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
 const tenToNineteen = ["Ten","Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", 
       "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
 const tensDigits = ["Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
-const nextZeroes = ["","Thousand","Million"];
+const nextZeroes = ["Thousand","Million"];
 
 
 /**
@@ -47,8 +47,8 @@ function numToWord(n) {
   let word = "";
   let numLength = n.toString().length;
 
-  for(let i = numLength - 1; i > 3; i-=3) {
-    word += oneToNineHundredNinetyNine(Math.floor(n / Math.pow(1000,Math.floor(i/3)))) + " " + nextZeroes[Math.ceil(i/3) - 1]+ " ";
+  for(let i = numLength - 1; i >= 3; i-=3) {
+    word += oneToNineHundredNinetyNine(Math.floor(n / Math.pow(1000,Math.floor(i/3)))) + " " + nextZeroes[Math.floor(i/3) - 1]+ " ";
     n = n % Math.pow(1000, Math.floor(i/3));
   }
   
@@ -57,4 +57,13 @@ function numToWord(n) {
   return word;
 }
 
-console.log(numToWord(102220812))
+console.log(numToWord(1));
+console.log(numToWord(14));
+console.log(numToWord(25));
+console.log(numToWord(142));
+console.log(numToWord(9821));
+console.log(numToWord(10000));
+console.log(numToWord(123412));
+console.log(numToWord(1578092));
+console.log(numToWord(12345678));
+console.log(numToWord(998221278));
